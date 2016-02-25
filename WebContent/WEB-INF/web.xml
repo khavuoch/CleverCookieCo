@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>Frookies</display-name>
+	<welcome-file-list>
+		<welcome-file>homepage.html</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>Orders</servlet-name>
+		<servlet-class>com.tutorial.servlets.Orders</servlet-class>
+		<init-param>
+			<param-name>best-selling</param-name>
+			<param-value>chocolate-chip</param-value>
+		</init-param>
+		<init-param>
+			<param-name>highest-rated</param-name>
+			<param-value>oatmeal-raisin</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>com.tutorial.servlets.Login</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Orders</servlet-name>
+		<url-pattern>/Orders</url-pattern>
+		<url-pattern>/Chicken</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+
+	<resource-ref>
+		<description>css490 db</description>
+		<res-ref-name>jdbc/css490</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+</web-app>
